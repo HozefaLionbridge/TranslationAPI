@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslationAPI", "TranslationAPI\TranslationAPI.csproj", "{90369A2D-8BAB-4954-BE13-CB8BA9D2F368}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationAPI", "TranslationAPI\TranslationAPI.csproj", "{90369A2D-8BAB-4954-BE13-CB8BA9D2F368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translation.Models", "Translation.Models\Translation.Models.csproj", "{A7082F1D-54CC-44BE-BA52-6BDF20265BAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{90369A2D-8BAB-4954-BE13-CB8BA9D2F368}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90369A2D-8BAB-4954-BE13-CB8BA9D2F368}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90369A2D-8BAB-4954-BE13-CB8BA9D2F368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7082F1D-54CC-44BE-BA52-6BDF20265BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7082F1D-54CC-44BE-BA52-6BDF20265BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7082F1D-54CC-44BE-BA52-6BDF20265BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7082F1D-54CC-44BE-BA52-6BDF20265BAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
