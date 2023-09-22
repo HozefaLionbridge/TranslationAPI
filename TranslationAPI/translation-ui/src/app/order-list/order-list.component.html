@@ -1,0 +1,83 @@
+<div class="container">
+  <h2>Order List</h2>
+  <mat-tab-group style="width: 200% !important;">
+    <mat-tab label="In Progress" [disableRipple]="true">
+      <table class="order-list-table product-report-table" style="margin-top: -3px;">
+        <thead>
+          <tr>
+            <th style="width: 12%;">ID</th>
+            <th style="width: 8%;">Name</th>
+            <th style="width: 40% !important;">Input File</th>
+            <th>Output File</th>
+            <th style="width: 12%;">Status</th>
+            <th style="width: 17%;">Submission Date</th>
+            <th style="width: 16%;">Completed Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of createdOrders">
+            <td>{{ order.orderId }}</td>
+            <td>{{ order.orderName }}</td>
+            <td style="word-break: break-all;">{{ order.inputFileURL }}</td>
+            <td>{{ order.outputFileURL }}</td>
+            <td>{{ order.statusId === OrderStatus.Created ? "Created" : "Processing" }}</td>
+            <td>{{ order.submissionDate | date }}</td>
+            <td>{{ order.completedDate | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="Completed">
+      <table class="order-list-table product-report-table" style="margin-top: -3px;">
+        <thead>
+          <tr>
+            <th style="width: 12%;">ID</th>
+            <th style="width: 8%;">Name</th>
+            <th style="width: 40% !important;">Input File</th>
+            <th>Output File</th>
+            <th style="width: 12%;">Status</th>
+            <th style="width: 17%;">Submission Date</th>
+            <th style="width: 16%;">Completed Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of completedOrders">
+            <td>{{ order.orderId }}</td>
+            <td>{{ order.orderName }}</td>
+            <td style="word-break: break-all;">{{ order.inputFileURL }}</td>
+            <td>{{ order.outputFileURL }}</td>
+            <td>{{ order.statusId < 2 && order.statusId != 3 ? 'In Progress' : 'Completed' }}</td>
+            <td>{{ order.submissionDate | date }}</td>
+            <td>{{ order.completedDate | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="Failed">
+      <table class="order-list-table product-report-table" style="margin-top: -3px;">
+        <thead>
+          <tr>
+            <th style="width: 12%;">ID</th>
+            <th style="width: 8%;">Name</th>
+            <th style="width: 40% !important;">Input File</th>
+            <th>Output File</th>
+            <th style="width: 12%;">Status</th>
+            <th style="width: 17%;">Submission Date</th>
+            <th style="width: 16%;">Completed Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of failedOrders">
+            <td>{{ order.orderId }}</td>
+            <td>{{ order.orderName }}</td>
+            <td style="word-break: break-all;">{{ order.inputFileURL }}</td>
+            <td>{{ order.outputFileURL }}</td>
+            <td>{{ order.statusId < 2 && order.statusId != 3 ? 'In Progress' : 'Completed' }}</td>
+            <td>{{ order.submissionDate | date }}</td>
+            <td>{{ order.completedDate | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

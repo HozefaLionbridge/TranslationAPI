@@ -1,0 +1,28 @@
+.order-list-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 150% !important;
+    max-width: 900px;
+  }
+  
+  .order-list-table th,
+  .order-list-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .order-list-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .order-list-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .order-list-table tr:hover {
+    background-color: #f5f5f5;
+  }
+  
