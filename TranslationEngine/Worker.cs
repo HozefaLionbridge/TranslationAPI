@@ -1,3 +1,5 @@
+using TranslationEngine.BLL;
+
 namespace TranslationEngine
 {
     public class Worker : BackgroundService
@@ -14,6 +16,9 @@ namespace TranslationEngine
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                //JobsProcessor jobsProcessor = new();
+                //jobsProcessor.Initialize();
+                GFTranslate.UploadFiles();
                 await Task.Delay(1000, stoppingToken);
             }
         }

@@ -10,4 +10,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Translation.Models\Translation.Models.csproj" />
+    <ProjectReference Include="..\TranslationEngine.BLL\TranslationEngine.BLL.csproj" />
+  </ItemGroup>
 </Project>
