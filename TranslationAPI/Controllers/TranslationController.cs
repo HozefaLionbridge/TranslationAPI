@@ -36,10 +36,9 @@ namespace TranslationAPI.Controllers
         [Route("api/[controller]/AddOrder")]
         public ActionResult<Order> AddOrder(Order order)
         {
-            // use raw sql to insert into [dbo].[Order] table
-            string query = "insert into [dbo].[Order] " +
-                "values('" + order.OrderName + "'," + order.StatusId + ",'" + order.InputFileURL + "','" + order.OutputFileURL + "','"
-                 + order.SubmissionDate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + order.CompletedDate.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+            string query = "INSERT INTO [dbo].[Order] (OrderName, StatusId, InputFileURL, OutputFileURL, SubmissionDate) " +
+             "VALUES ('" + order.OrderName + "'," + order.StatusId + ",'" + order.InputFileURL + "','" + order.OutputFileURL + "','"
+               + order.SubmissionDate.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
             // execute the query
             _context.Database.ExecuteSqlRaw(query);
