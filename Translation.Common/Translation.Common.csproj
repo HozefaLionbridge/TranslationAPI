@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Translation.Models\Translation.Models.csproj" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.18.0" />
   </ItemGroup>
 
 </Project>
