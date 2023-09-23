@@ -12,6 +12,7 @@
     public enum StepStatus
     {
         Created,
+        ReadyToBePicked,
         Processing,
         Completed,
         Failed

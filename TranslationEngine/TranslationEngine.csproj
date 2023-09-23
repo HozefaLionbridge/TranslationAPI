@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Translation.Common\Translation.Common.csproj" />
     <ProjectReference Include="..\Translation.Models\Translation.Models.csproj" />
+    <ProjectReference Include="..\Translation.ReportsGenerator\Translation.ReportsGenerator.csproj" />
     <ProjectReference Include="..\TranslationEngine.BLL\TranslationEngine.BLL.csproj" />
   </ItemGroup>
 </Project>

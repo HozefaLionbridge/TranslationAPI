@@ -5,9 +5,9 @@ namespace TranslationEngine.BLL
 {
     public class GFTranslate
     {
-        public static void UploadFiles()
+        public static void UploadFiles(string fileName)
         {
-            var translateArrayResponses = UploadFile().GetAwaiter().GetResult();
+            var translateArrayResponses = UploadFile(fileName).GetAwaiter().GetResult();
         }
 
         private static void CheckStatus()
@@ -17,38 +17,47 @@ namespace TranslationEngine.BLL
 
         public static async Task<string> UploadFile(string fileName)
         {
-
-            var query = HttpUtility.ParseQueryString(string.Empty);
-            query["from"] = "en-us";
-            query["to"] = "fr-fr";
-            query["options.timeout"] = "3000";
-            query["options.application"] = "TMS";
-            query["options.transactionId"] = "1281_fr-fr_EvalLock";
-
-            MultipartFormDataContent form = new MultipartFormDataContent();
-            byte[] fileBytes = System.IO.File.ReadAllBytes(@"C:\\Temp\23S32 - Ford Owner Letter Interim2.xlz");
-            var byteContent = new ByteArrayContent(fileBytes);
-
-            // byteContent.Headers.ContentType =  MediaTypeHeaderValue.Parse("application/octet-stream");
-            // byteContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data");
-            //form.Add(byteContent, "Xliff", "test.xlz");
-            form.Add(byteContent, "\"Xliff\"", @"C:\\Temp\23S32 - Ford Owner Letter Interim2.xlz");
-
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://lionbridge-geofluent-api-qa.azurewebsites.net");
-
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GetToken());
-            // client.DefaultRequestHeaders.AcceptEncoding.Add(new System.Net.Http.Headers.StringWithQualityHeaderValue("gzip"));
-            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            var response = await client.PostAsync("translation/v3/translate/translatexliff?" + query.ToString(), form);
-
-            //return new TranslateResponse { ContinuationToken = response.StatusCode.ToString() };
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                string httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
+                var query = HttpUtility.ParseQueryString(string.Empty);
+                query["from"] = "en-us";
+                query["to"] = "fr-fr";
+                query["options.timeout"] = "3000";
+                query["options.application"] = "TMS";
+                query["options.transactionId"] = "1281_fr-fr_EvalLock";
+
+                MultipartFormDataContent form = new MultipartFormDataContent();
+                //byte[] fileBytes = File.ReadAllBytes(@"C:\\Temp\23S32 - Ford Owner Letter Interim2.xlz");
+                byte[] fileBytes = File.ReadAllBytes(fileName);
+                var byteContent = new ByteArrayContent(fileBytes);
+
+                // byteContent.Headers.ContentType =  MediaTypeHeaderValue.Parse("application/octet-stream");
+                // byteContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data");
+                //form.Add(byteContent, "Xliff", "test.xlz");
+                form.Add(byteContent, "\"Xliff\"", @"C:\\Temp\23S32 - Ford Owner Letter Interim2.xlz");
+                form.Add(byteContent, "\"Xliff\"", fileName);
+
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri("https://lionbridge-geofluent-api-qa.azurewebsites.net");
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", GetToken());
+                // client.DefaultRequestHeaders.AcceptEncoding.Add(new System.Net.Http.Headers.StringWithQualityHeaderValue("gzip"));
+                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var response = await client.PostAsync("translation/v3/translate/translatexliff?" + query.ToString(), form);
+
+                //return new TranslateResponse { ContinuationToken = response.StatusCode.ToString() };
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
+                }
             }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+            return string.Empty;
             //throw new Exception(response.StatusCode.ToString());
         }
 
