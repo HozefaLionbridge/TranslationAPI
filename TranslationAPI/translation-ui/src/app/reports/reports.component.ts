@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Report } from '../order.model';
+import { Report, OrderStatus } from '../order.model';
 import { TranslationService } from '../translation.service';
 
 
@@ -14,9 +14,10 @@ export class ReportsComponent {
     fromDate: new Date(),
     toDate: new Date(),
     emailId: '',
-    statusId: 0,
+    statusId: -1,
     orderStatusId: 0
   };
+  orderStatusValues = Object.values(OrderStatus);
 
   constructor(private reportService: TranslationService) {}
 

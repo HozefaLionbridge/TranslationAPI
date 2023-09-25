@@ -16,10 +16,10 @@
       <div class="form-group">
         <label for="status">Status:</label>
         <select id="status" name="status" class="form-control" [(ngModel)]="report.statusId">
-          <option value="">-- Select Status --</option>
-          <option value="in-progress">In Progress</option>
-          <option value="completed">Completed</option>
-          <option value="failed">Failed</option>
+          <option value=-1>-- Select Status --</option>
+          <option value=0>Created</option>
+          <option value=1>Processing</option>
+          <option value=2>Completed</option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary">Generate Report</button>
