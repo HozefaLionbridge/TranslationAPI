@@ -39,6 +39,7 @@ export class AddOrderComponent implements OnInit {
     });
   }
   onFileSelected(event: any) {
+    debugger;
     const file: File = event.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -48,4 +49,9 @@ export class AddOrderComponent implements OnInit {
       };
     }
   }
+  // onFileSelected(event: any) {
+  //   debugger;
+  //   console.log(event.value);
+  //   this.order.inputFileURL = event.value;
+  // }
 }

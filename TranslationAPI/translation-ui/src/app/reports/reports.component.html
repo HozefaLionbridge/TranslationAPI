@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Reports</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fromDate">From Date:</label>
+        <input type="date" id="fromDate" name="fromDate" class="form-control" [(ngModel)]="report.fromDate">
+      </div>
+      <div class="form-group">
+        <label for="toDate">To Date:</label>
+        <input type="date" id="toDate" name="toDate" class="form-control" [(ngModel)]="report.toDate">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" [(ngModel)]="report.emailId">
+      </div>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" name="status" class="form-control" [(ngModel)]="report.statusId">
+          <option value="">-- Select Status --</option>
+          <option value="in-progress">In Progress</option>
+          <option value="completed">Completed</option>
+          <option value="failed">Failed</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Generate Report</button>
+    </form>
+  </div>
