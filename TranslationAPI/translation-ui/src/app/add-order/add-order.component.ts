@@ -49,9 +49,4 @@ export class AddOrderComponent implements OnInit {
       };
     }
   }
-  // onFileSelected(event: any) {
-  //   debugger;
-  //   console.log(event.value);
-  //   this.order.inputFileURL = event.value;
-  // }
 }

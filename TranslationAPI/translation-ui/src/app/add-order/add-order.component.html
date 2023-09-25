@@ -7,7 +7,7 @@
       </div>
       <div class="form-group">
         <label for="inputFileUrl">Input File URL:</label>
-        <input type="file" class="form-control" id="inputFileUrl" name="inputFileUrl" (change)="onFileSelected($event.target)">
+        <input type="file" class="form-control" id="inputFileUrl" name="inputFileUrl" (change)="onFileSelected($event)" required>
       </div>     
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
