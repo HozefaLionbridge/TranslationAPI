@@ -46,8 +46,14 @@ namespace TranslationAPI.Controllers
 
             order.InputFileURL = order.InputFileURL.Split("base64,").Last();
 
-            System.IO.File.WriteAllBytes(@"C:\Temp\" + order.OrderName + ".docx", Convert.FromBase64String(order.InputFileURL as string));
-            var fileUrl = _blobUtility.UploadToBlobAsync(blobConnectionString, order.OrderName.ToLower().Trim(), @"C:\Temp\" + order.OrderName + ".docx").GetAwaiter().GetResult();
+            if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "\\Temp"))
+            {
+                //create this path
+                System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "\\Temp");
+            }
+
+            System.IO.File.WriteAllBytes(System.AppDomain.CurrentDomain.BaseDirectory + "\\Temp\\" + order.OrderName + ".docx", Convert.FromBase64String(order.InputFileURL as string));
+            var fileUrl = _blobUtility.UploadToBlobAsync(blobConnectionString, order.OrderName.ToLower().Trim(), System.AppDomain.CurrentDomain.BaseDirectory + "\\Temp\\" + order.OrderName + ".docx").GetAwaiter().GetResult();
 
             string query = "INSERT INTO [dbo].[Order] (OrderName, StatusId, InputFileURL, OutputFileURL, SubmissionDate) " +
              "VALUES ('" + order.OrderName + "'," + order.StatusId + ",'" + fileUrl + "','" + order.OutputFileURL + "','"
