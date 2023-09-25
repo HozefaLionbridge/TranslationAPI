@@ -14,3 +14,13 @@ public enum Status
     InProgress = 1,
     Completed = 2,
 }
+
+public class Report
+{
+    public int RequestId { get; set; }
+    public DateTime FromDate { get; set; }
+    public DateTime ToDate { get; set; }
+    public string EmailId { get; set; }
+    public int StatusId { get; set; }
+    public int OrderStatusId { get; set; }
+}

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Translation.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -15,7 +16,7 @@ builder.Services.AddDbContext<TranslationContext>(options => options.UseSqlServe
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddScoped<BlobUtility>();
 var CorsPolicy = "UI_Application";
 builder.Services.AddCors(options =>
 {
