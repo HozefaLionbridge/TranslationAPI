@@ -1,4 +1,5 @@
 using Translation.ReportsGenerator;
+using TranslationEngine.BLL;
 
 namespace TranslationEngine
 {
