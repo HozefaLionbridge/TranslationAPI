@@ -42,4 +42,19 @@ export class OrderListComponent implements OnInit {
     }
     return dateTime ? this.datePipe.transform(dateTime, 'yyyy-MM-dd') || '' : '';
   }
+
+  onDownloadClick(order: Order) {
+    this.orderService.downloadOrder(order).subscribe(
+      data => {
+        console.log('Order downloaded successfully:', data);
+        alert('File downloaded successfully');
+        // TODO: Display success message to user
+      },
+      error => {
+        console.error('Error downloading order:', error);
+        alert('Error while downloading file');
+        // TODO: Display error message to user
+      }
+    );
+  }
 }

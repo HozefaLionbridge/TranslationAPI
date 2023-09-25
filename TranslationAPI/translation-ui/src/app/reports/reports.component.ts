@@ -26,11 +26,12 @@ export class ReportsComponent {
       .subscribe(
         data => {
           console.log('Report generated successfully:', data);
-          // TODO: Display report to user
+          alert('Report request submitted successfully');
         },
         error => {
           console.error('Error generating report:', error);
           // TODO: Display error message to user
+          alert('Error while submitting report request');
         }
       );
   }

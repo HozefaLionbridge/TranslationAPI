@@ -30,6 +30,11 @@ export class TranslationService {
       catchError(this.handleError)
     );
   }
+  downloadOrder(order: Order): Observable<Order> {
+    return this.http.post<Order>(`${this.apiUrl}/Translation/DownloadFile`, order).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   //handle errors
   private handleError(error: HttpErrorResponse) {
