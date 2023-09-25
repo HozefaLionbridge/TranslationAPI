@@ -18,7 +18,9 @@
           <tr *ngFor="let order of createdOrders">
             <td>{{ order.orderId }}</td>
             <td>{{ order.orderName }}</td>
-            <td style="word-break: break-all;">{{ order.inputFileURL }}</td>
+            <td style="word-break: break-all;">            
+              <a href="{{ order.inputFileURL }}" download>Download File</a>
+            </td>
             <td>{{ order.outputFileURL }}</td>
             <td>{{ order.statusId === OrderStatus.Created ? "Created" : "Processing" }}</td>
             <td>{{ order.submissionDate | date }}</td>
@@ -27,7 +29,7 @@
         </tbody>
       </table>
     </mat-tab>
-    <mat-tab label="Completed">
+    <mat-tab label="Completed" [disableRipple]="true">
       <table class="order-list-table product-report-table" style="margin-top: -3px;">
         <thead>
           <tr>
@@ -44,7 +46,9 @@
           <tr *ngFor="let order of completedOrders">
             <td>{{ order.orderId }}</td>
             <td>{{ order.orderName }}</td>
-            <td style="word-break: break-all;">{{ order.inputFileURL }}</td>
+            <td style="word-break: break-all;">            
+              <a href="{{ order.inputFileURL }}" download>Download File</a>
+            </td>
             <td>{{ order.outputFileURL }}</td>
             <td>{{ order.statusId < 2 && order.statusId != 3 ? 'In Progress' : 'Completed' }}</td>
             <td>{{ order.submissionDate | date }}</td>
@@ -53,7 +57,7 @@
         </tbody>
       </table>
     </mat-tab>
-    <mat-tab label="Failed">
+    <mat-tab label="Failed" [disableRipple]="true">
       <table class="order-list-table product-report-table" style="margin-top: -3px;">
         <thead>
           <tr>
@@ -70,7 +74,9 @@
           <tr *ngFor="let order of failedOrders">
             <td>{{ order.orderId }}</td>
             <td>{{ order.orderName }}</td>
-            <td style="word-break: break-all;">{{ order.inputFileURL }}</td>
+            <td style="word-break: break-all;">            
+              <a href="{{ order.inputFileURL }}" download>Download File</a>
+            </td>
             <td>{{ order.outputFileURL }}</td>
             <td>{{ order.statusId < 2 && order.statusId != 3 ? 'In Progress' : 'Completed' }}</td>
             <td>{{ order.submissionDate | date }}</td>

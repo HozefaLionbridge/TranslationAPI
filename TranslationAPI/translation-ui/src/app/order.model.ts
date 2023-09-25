@@ -20,3 +20,13 @@ export interface Order {
     Completed,
     Failed
   }
+
+  //create model for Report
+  export interface Report {
+    requestId: number;
+    fromDate: Date;
+    toDate: Date;
+    emailId: string;
+    statusId: number;
+    orderStatusId: number;
+  }

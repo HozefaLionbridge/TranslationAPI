@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { AddOrderComponent } from './add-order/add-order.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ReportsComponent } from './reports/reports.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     OrderListComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,

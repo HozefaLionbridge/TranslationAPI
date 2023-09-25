@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, retry, throwError } from 'rxjs';
-import { Order } from './order.model';
+import { Order, Report } from './order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,13 @@ export class TranslationService {
       catchError(this.handleError)
     );
   }
+  generateReport(report : Report): Observable<Report> {
+    debugger;
+    return this.http.post<Report>(`${this.apiUrl}/Translation/AddReport`, report).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   //handle errors
   private handleError(error: HttpErrorResponse) {
     debugger;
