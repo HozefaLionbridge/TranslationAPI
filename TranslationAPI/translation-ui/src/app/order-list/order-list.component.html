@@ -7,8 +7,8 @@
           <tr>
             <th style="width: 12%;">ID</th>
             <th style="width: 8%;">Name</th>
-            <th style="width: 40% !important;">Input File</th>
-            <th>Output File</th>
+            <th style="width: 30% !important;">Input File</th>
+            <th style="width: 30% !important;">Output File</th>
             <th style="width: 12%;">Status</th>
             <th style="width: 17%;">Submission Date</th>
             <th style="width: 16%;">Completed Date</th>
@@ -22,7 +22,11 @@
               <a href="{{ order.inputFileURL }}" download>Download File</a>
               <!-- <a (click)="onDownloadClick(order)">Download File</a> -->
             </td>
-            <td>{{ order.outputFileURL }}</td>
+            <td>
+              <!-- {{ order.outputFileURL }} -->
+              NA
+              <!-- <a href="{{ order.outputFileURL }}" download>Download File</a> -->
+            </td>
             <td>{{ order.statusId === OrderStatus.Created ? "Created" : "Processing" }}</td>
             <td>{{ order.submissionDate | date }}</td>
             <td>{{ order.completedDate | date }}</td>
@@ -36,8 +40,8 @@
           <tr>
             <th style="width: 12%;">ID</th>
             <th style="width: 8%;">Name</th>
-            <th style="width: 40% !important;">Input File</th>
-            <th>Output File</th>
+            <th style="width: 30% !important;">Input File</th>
+            <th style="width: 30% !important;">Output File</th>
             <th style="width: 12%;">Status</th>
             <th style="width: 17%;">Submission Date</th>
             <th style="width: 16%;">Completed Date</th>
@@ -51,7 +55,10 @@
               <a href="{{ order.inputFileURL }}" download>Download File</a>
               <!-- <a (click)="onDownloadClick(order)">Download File</a> -->
             </td>
-            <td>{{ order.outputFileURL }}</td>
+            <td>
+              <!-- {{ order.outputFileURL }} -->
+              <a href="{{ order.outputFileURL }}" download>Download File</a>
+            </td>
             <td>{{ order.statusId < 2 && order.statusId != 3 ? 'In Progress' : 'Completed' }}</td>
             <td>{{ order.submissionDate | date }}</td>
             <td>{{ order.completedDate | date }}</td>
@@ -65,8 +72,8 @@
           <tr>
             <th style="width: 12%;">ID</th>
             <th style="width: 8%;">Name</th>
-            <th style="width: 40% !important;">Input File</th>
-            <th>Output File</th>
+            <th style="width: 30% !important;">Input File</th>
+            <th style="width: 30% !important;">Output File</th>
             <th style="width: 12%;">Status</th>
             <th style="width: 17%;">Submission Date</th>
             <th style="width: 16%;">Completed Date</th>
@@ -80,7 +87,10 @@
               <a href="{{ order.inputFileURL }}" download>Download File</a>
               <!-- <a (click)="onDownloadClick(order)">Download File</a> -->
             </td>
-            <td>{{ order.outputFileURL }}</td>
+            <td>
+              <!-- {{ order.outputFileURL }} -->
+              <a href="{{ order.outputFileURL }}" download>Download File</a>
+            </td>
             <td>{{ order.statusId < 2 && order.statusId != 3 ? 'In Progress' : 'Completed' }}</td>
             <td>{{ order.submissionDate | date }}</td>
             <td>{{ order.completedDate | date }}</td>
